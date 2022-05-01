@@ -1,0 +1,13 @@
+
+#content-div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+};
+div.anime-card {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 20vw;
+}
