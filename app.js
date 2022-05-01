@@ -30,23 +30,6 @@ const getAnime = async () => {
     const temp = await fetch(`https://api.jikan.moe/v4/top/anime?type=special&filter=bypopularity&page=1`)
         .then(res => res.json())
         .then(json => {
-            //  for (var i =0; i<3; i++) {
-            //     div.innerHTML=`
-            //             <div class="card">
-            //             <img class ="card-img-top" src=${json.data[i].images.jpg.image_url}>
-            //             <div class="card-body">
-            //             <h2 class="card-title">${json.data[i].title}</h2>
-            //             <p class="card-text"> Episodes: ${json.data[i].episodes} <br>
-            //                  Rating: ${json.data[i].rating}<br>
-            //                  Rank: ${json.data[i].rank}</p>
-            //             </div>     
-            //             </div>`
-                // console.log(json);
-            //     // console.log(json.duration);
-            //     // console.log(json.rank);
-            //     // console.log(json.synopsis);
-            // }
-
             json.data.forEach( (anime)=>{
                 createAnimeCard(anime);
                 
