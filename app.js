@@ -24,7 +24,7 @@
 // console.log("It should work!");
 // console.log(getFinalUrl(2));
 
-
+const btnSearch = document.querySelector('.btn');
 
 const getAnime = async () => {
     const temp = await fetch(`https://api.jikan.moe/v4/top/anime?type=special&filter=bypopularity&page=1`)
@@ -41,7 +41,7 @@ const getAnime = async () => {
             //                  Rank: ${json.data[i].rank}</p>
             //             </div>     
             //             </div>`
-                 console.log(json);
+                // console.log(json);
             //     // console.log(json.duration);
             //     // console.log(json.rank);
             //     // console.log(json.synopsis);
@@ -77,3 +77,17 @@ function createAnimeCard(anime) {
     animeCard.style.border = "1px solid black";
 }
 getAnime();
+
+function search() {
+    const searchText = document.querySelector("input").value;
+    console.log(searchText);
+    fetch(`https://api.jikan.moe/v4/top/anime?q=` + searchText)
+        .then(res => res.json())
+        .then(json => {
+            json.data.forEach( (anime)=>{
+                createAnimeCard(anime);
+            })
+        })
+};
+
+btnSearch.addEventListener("click", search);
